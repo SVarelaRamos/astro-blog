@@ -1,0 +1,69 @@
+---
+import Header from "@/components/Header.astro";
+import { wpquery } from "@/data/wordpress";
+import Layout from "@/layouts/Layout.astro";
+
+interface Props{
+  post: any
+}
+
+export async function getStaticPaths() {
+  const data = await wpquery({
+    query: `
+      query LoadAllPosts {
+        posts {
+          nodes {
+            title
+            slug
+            featuredImage {
+              node {
+                mediaItemUrl
+                srcSet
+                sizes
+                altText
+              }
+            }
+            content(format: RENDERED)
+            author {
+              node {
+                name
+              }
+            }
+          }
+        }
+      }
+    `,
+  });
+
+  return data.posts.nodes.map((post: any) => {
+    return {
+      params: { slug: post.slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={`Posts | ${post.title}`}>
+  <Header menu="none"/>
+  <main class="pt-8 px-8 max-w-[1200px]">
+    <img
+      src={post.featuredImage.node.mediaItemUrl}
+      srcset={post.featuredImage.node.srcSet}
+      sizes={post.featuredImage.node.sizes}
+      alt={post.featuredImage.node.alt}
+    />
+
+    <h1>{post.title}</h1>
+
+    <p class="">Written by {post.author.node.name}</p>
+
+    <Fragment set:html={post.content} />
+
+    <p>
+        <a href="/">&larr; back to all posts</a>
+    </p>
+  </main>
+</Layout>

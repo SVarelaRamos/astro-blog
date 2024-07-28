@@ -1,0 +1,76 @@
+---
+interface Props {
+	menu: string;
+}
+
+const { menu } = Astro.props;
+---
+
+<header class="h-32 bg-orange-400 w-full flex justify-center" >
+    <div class="flex justify-between items-center px-8 pt-6 w-full max-w-[1200px]">
+        <div>
+            <h1 class="font-chubbo text-4xl title">Gio's cookbook</h1>
+        </div>
+        <div>
+            <nav>
+                <ul class="flex gap-8">
+                    <li class={menu == 'Blog' ? 'active' : ''}}>
+                        <a href="/">Blog</a>
+                    </li>
+                    <li class={menu == 'Categorías' ? 'active' : ''}>
+                        <a href="#">Categorías<img class="size-3 inline ml-1 -mt-[2px] rotate-90" src="/icons/arrow.svg" /></a>
+                        <ul class="dropdown">
+                            <li>Categoria 1</li>
+                            <li>Categoria 2</li>
+                            <li>Categoria 3</li>
+                        </ul>
+                    </li>
+                    <li class={menu == 'About' ? 'active' : ''}>
+                        <a href="/about">Sobre mí</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    </header>
+
+<style>
+    h1{
+        text-shadow: rgb(249 115 22) 0 4px 2px;
+    }
+
+    ul:not(.dropdown)>li:active:not(:has(>ul.dropdown)){
+        @apply translate-x-1 translate-y-1 shadow-none
+    }
+
+    li.active a{
+        @apply bg-orange-200;
+    }
+
+    a{
+        @apply border-2 border-black rounded px-6 py-1 shadow-bold-sm;
+
+        &:hover{
+            @apply bg-orange-200
+        }
+        &:active:not(:has(+ ul.dropdown)){
+            @apply shadow-none
+        }
+    }
+
+    ul li ul.dropdown li{
+        @apply block py-1 hover:bg-orange-200 bg-orange-400 border-r-2 border-t-2 border-l-2 border-black shadow-bold
+    }
+    ul li ul.dropdown li:first-child{
+        @apply rounded-t
+    }
+    ul li ul.dropdown li:last-child{
+        @apply rounded-b border-b-2
+    }
+    ul li ul.dropdown{
+        @apply  text-center w-36  pt-3 absolute z-50 hidden
+    }
+    ul li:hover ul.dropdown{
+        @apply block
+    }
+</style>
