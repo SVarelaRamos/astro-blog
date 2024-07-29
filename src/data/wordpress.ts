@@ -7,8 +7,6 @@ interface WPGraphQLParams {
   variables?: object;
 }
 
-console.log(WP_GRAPHQL_ENDPOINT);
-
 export async function wpquery({ query, variables = {} }: WPGraphQLParams) {
   const res = await fetch(WP_GRAPHQL_ENDPOINT, {
     method: "post",
