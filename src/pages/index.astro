@@ -36,7 +36,7 @@ const data = await wpquery({
 			<div class="flex flex-col gap-8">
 			{data.posts.nodes.map((post: any) => {
 				return (
-				<article class="flex gap-4 place-items-center bg-blue-300 border-4 border-black rounded-lg overflow-hidden shadow-bold"  >
+				<article class="flex gap-4 place-items-center bg-blue-200 border-4 border-black rounded-lg overflow-hidden shadow-bold"  >
 					<div class="flex-shrink-0 max-w-64 border-black border-r-4 ">
 						<img class="aspect-square object-cover"
 							src={post.featuredImage.node.mediaItemUrl}
@@ -45,7 +45,7 @@ const data = await wpquery({
 							alt={post.featuredImage.node.alt}/>
 					</div>
 					<div class="pr-4">
-						<h3 class="text-shadow-lg text-4xl">{post.title}</h3>
+						<h3 class="text-4xl">{post.title}</h3>
 						<p class="text-xs text-slate-600 mb-4 text-pretty">{new Intl.DateTimeFormat('es-ES', {dateStyle: 'medium',timeStyle: 'medium'}).format(new Date(post.date))}</p>
 						<div class="text-slate-800 text-sm mb-8">
 							<Fragment set:html={post.excerpt}/>
