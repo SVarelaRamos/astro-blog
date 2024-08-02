@@ -61,11 +61,11 @@ const { post } = Astro.props;
 
 <Layout title={`Posts | ${post.title}`}>
   <Header menu="none"/>
-  <main class="pt-8 px-8 max-w-[680px]">
+  <main class="pt-8 pl-8 pr-8 sm:pr-28 w-full max-w-[680px]">
     <section>
       
       <div class=" bg-blue-200 p-8 border-2 border-black rounded-xl shadow-bold-lg">
-        <div class=" float-right pl-8 -mr-28 mt-16 w-52 md:w-72 relative z-10">
+        <div class="hidden sm:block float-right pl-8 -mr-28 mt-16 w-52 md:w-72 relative z-10">
           <img class=" aspect-[3/4] object-cover border-2 border-black rounded-md overflow-hidden"
           src={post.featuredImage.node.mediaItemUrl}
           srcset={post.featuredImage.node.srcSet}
@@ -88,17 +88,38 @@ const { post } = Astro.props;
             </div>
           </div>
         </div>
+
+        <div class="sm:hidden block mb-8 -mt-8 -mx-8 border-b-2 border-black">
+          <img class=" aspect-[4/3] object-cover rounded-t-lg"
+          src={post.featuredImage.node.mediaItemUrl}
+          srcset={post.featuredImage.node.srcSet}
+          sizes={post.featuredImage.node.sizes}
+          alt={post.featuredImage.node.alt}
+          />
+          
+        </div>
         
         <h1 class="text-4xl md:text-5xl text-balance">{post.title}</h1>
         
         <p class="mt-2 text-slate-600 text-sm">Escrito por <span class="font-bold">{post.author.node.name}</span></p>
         <p class="text-xs  mb-8 text-slate-600 text-pretty">{new Intl.DateTimeFormat('es-ES', {dateStyle: 'medium',timeStyle: 'medium'}).format(new Date(post.date))}</p>
         
-        <div class="flex flex-col gap-2 mb-12">
+        <div class="flex flex-col gap-2 mb-8">
           <Fragment set:html={post.content} />
         </div>
-        
-        <div class="pr-2 mb-2 active:translate-x-1 active:translate-y-1">
+        <div class="block sm:hidden border-2 bg-orange-100 rounded border-black shadow-bold-sm p-4 max-w-fit m-auto">
+          <h5 class="mb-2">Tags</h5>
+          <div class="flex gap-x-2 justify-center text-center gap-y-2 flex-wrap">
+            {
+              post.tags.nodes.map((category: any) =>{
+                return(
+                  <span class="text-xs py-1 px-2 border-2 hover:shadow-bold-sm hover:shadow-orange-400 border-orange-400 rounded">{category.name}</span>
+              )
+              
+              })}
+          </div>
+        </div>
+        <div class="pr-2 mt-12 mb-2 active:translate-x-1 active:translate-y-1">
           <a href="/" class="bg-orange-400 rounded-lg shadow-bold-sm shadow-orange-700 border-orange-700 border-2 py-2 px-4 hover:bg-orange-100 hover:text-orange-700 focus:bg-orange-100 focus:text-orange-700 active:shadow-none text-white text-sm">
             <svg class="size-3 inline mr-1 -mt-[2px] rotate-180" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 15 15"><path fill="currentColor" d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414"/></svg>
             Todos los post
