@@ -1,0 +1,95 @@
+---
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const habilidadesTecnicas = ["HTML5", "CSS", "JavaScript", "TypeScript", "React","Java", "Spring", "Spring Data", "Spring Security", "Spring MVC", "Thymeleaf","MySQL", "Oracle"];
+const redesSociales = [
+  {
+    displayName: "LinkedIn",
+    url: "https://www.linkedin.com/in/sergio-varela-ramos-60686346/"
+  },
+  {
+    displayName: "GitHub",
+    url: "https://github.com/SVarelaRamos"
+  }
+] as const;
+---
+
+<Layout title="Sobre mí">
+  <Header menu="none"/>
+  <main class="pt-8 px-8 max-w-[680px]">
+    <section>
+      
+      <div class=" bg-blue-200 p-8 border-2 border-black rounded-xl shadow-bold-lg">
+        <div class=" float-right pl-8 -mr-28 mt-16 w-72 relative z-10">
+          <img class=" aspect-[3/4] object-cover border-2 border-black rounded-md overflow-hidden"
+          src="https://res.cloudinary.com/drgptqd5s/image/upload/v1722624564/7DB52329-09AF-45D1-843B-31538C5C9236_i8gsst.jpg"
+            alt="Foto de Sergio Varela Ramos"
+          />
+          <div class="absolute border-2 border-black bg-white rounded-lg h-[342px] w-64 top-2 left-10 -z-10"></div>
+          <div class="absolute border-2 border-black bg-white rounded-[10px] h-[342px] w-64 top-4 left-12 -z-20"></div>
+          <div class=" border-2 bg-blue-100 rounded border-black shadow-bold-sm mt-16 p-4">
+            <h5 class="mb-2">Redes sociales</h5>
+            <div class="flex gap-x-2 gap-y-2 flex-wrap">
+            {
+            redesSociales.map((social: any) =>{
+              return(
+                <a target="_blank" rel="noopener noreferrer" href={social.url} class="text-xs py-1 px-2 border-2 hover:shadow-bold-sm hover:shadow-orange-400 border-orange-400 rounded">{social.displayName}</a>
+            )
+            
+            })}
+            </div>
+          </div>
+          <div class=" border-2 bg-orange-100 rounded border-black shadow-bold-sm mt-8 p-4">
+            <h5 class="mb-2">Habilidades técnicas</h5>
+            <div class="flex gap-x-2 gap-y-2 flex-wrap">
+            {
+            habilidadesTecnicas.map((habilidad: any) =>{
+              return(
+                <span class="text-xs py-1 px-2 border-2 hover:shadow-bold-sm hover:shadow-orange-400 border-orange-400 rounded">{habilidad}</span>
+            )
+            
+            })}
+            </div>
+          </div>
+          
+        </div>
+        
+        <h1 class="text-5xl text-balance">Sergio Varela Ramos</h1>
+        
+        <p class="mt-2 text-slate-600">Fullstack Developer</span></p>
+        <p class="text-xs flex items-center gap-1 mt-2 mb-8 text-slate-600"><img class="inline-block size-4" src="/icons/map-pin.svg"/> Santiago de Compostela, España</p>
+        
+        <div class="flex flex-col gap-4 mb-12">
+          <p>Como desarrollador Full Stack con <span class="font-bold">5 años de experiencia</span>, me especializo en la creación de aplicaciones web robustas y eficientes. Mi pasión por el desarrollo de aplicaciones me ha llevado a dominar una amplia gama de tecnologías y a participar en proyectos diversos, mejorando continuamente mis habilidades y conocimientos.</p>
+          <p>Actualmente, trabajo como <span class="font-bold">Analista Programador</span> en Plexus Tech, donde contribuyo al desarrollo de soluciones innovadoras para mejorar la eficiencia y funcionalidad de las aplicaciones. Mis habilidades técnicas abarcan tanto el frontend como el backend, con un enfoque en lenguajes y frameworks como <span class="font-bold">Java, Spring, React y JavaScript</span>.</p>
+          <p>Además de mis habilidades técnicas, poseo un fuerte compromiso con el aprendizaje continuo, habiendo completado recientemente el <span class="font-bold">certificado profesional de Meta en Desarrollo Front-End</span>. Este curso me ha proporcionado conocimientos avanzados en UX/UI y desarrollo con React, permitiéndome crear interfaces de usuario modernas y eficientes.
+          </p>
+          <p>Mi objetivo es seguir enfrentando desafíos técnicos y contribuir a proyectos innovadores que marquen una diferencia.</p>
+        </div>
+        
+        <div class="pr-2 mb-2 active:translate-x-1 active:translate-y-1">
+          <a href="/" class="bg-orange-400 rounded-lg shadow-bold-sm shadow-orange-700 border-orange-700 border-2 py-2 px-4 hover:bg-orange-100 hover:text-orange-700 focus:bg-orange-100 focus:text-orange-700 active:shadow-none text-white text-sm">
+            <svg class="size-3 inline mr-1 -mt-[2px] rotate-180" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 15 15"><path fill="currentColor" d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414"/></svg>
+            Volver a inicio
+          </a>
+        </div>
+      </div>
+  </section>
+  </main>
+</Layout>
+
+<style>
+  h1{
+		text-shadow: rgb(96 165 250) 0 4px 2px;
+  }
+  p{
+    @apply text-pretty
+  }
+  ul:has(li>ul>li){
+    @apply space-y-1 list-disc list-inside
+  }
+  ul>li:not(:has(ul)){
+    @apply ps-5 mt-2 space-y-1 list-disc list-inside
+  }
+</style>

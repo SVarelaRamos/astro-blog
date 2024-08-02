@@ -3,6 +3,7 @@ import Header from '@/components/Header.astro';
 import { wpquery } from '@/data/wordpress';
 import Layout from '@/layouts/Layout.astro';
 
+
 const data = await wpquery({
 	query: `{
 		posts {
@@ -36,23 +37,25 @@ const data = await wpquery({
 			<div class="flex flex-col gap-8">
 			{data.posts.nodes.map((post: any) => {
 				return (
-				<article class="flex gap-4 place-items-center bg-blue-200 border-4 border-black rounded-lg overflow-hidden shadow-bold"  >
-					<div class="flex-shrink-0 max-w-64 border-black border-r-4 ">
-						<img class="aspect-square object-cover"
+				<article class="flex flex-col lg:flex-row gap-4 place-items-center bg-blue-200 border-4 border-black rounded-lg overflow-hidden shadow-bold"  >
+					<div class="flex-shrink-0 max-w-[670px] lg:max-w-64 border-black lg:border-r-4 border-b-4 ">
+						<img class="aspect-video lg:aspect-square object-cover"
 							src={post.featuredImage.node.mediaItemUrl}
 							srcset={post.featuredImage.node.srcSet}
 							sizes={post.featuredImage.node.sizes}
 							alt={post.featuredImage.node.alt}/>
 					</div>
-					<div class="pr-4">
-						<h3 class="text-4xl">{post.title}</h3>
-						<p class="text-xs text-slate-600 mb-4 text-pretty">{new Intl.DateTimeFormat('es-ES', {dateStyle: 'medium',timeStyle: 'medium'}).format(new Date(post.date))}</p>
+					<div class="lg:pr-4 lg:p-0 px-4 flex-grow">
+						<div class="max-w-prose">
+						<h3 class="text-4xl text-balance">{post.title}</h3>
+						<p class="text-xs text-slate-600 mb-4 mt-1 text-pretty">{new Intl.DateTimeFormat('es-ES', {dateStyle: 'medium',timeStyle: 'medium'}).format(new Date(post.date))}</p>
 						<div class="text-slate-800 text-sm mb-8">
 							<Fragment set:html={post.excerpt}/>
 						</div>
-						<div class="w-full flex justify-end pr-2 mb-2">
+						<div class="w-full flex justify-end pr-2 mb-4">
 							<a href={`/posts/${post.slug}`} class="bg-orange-400 rounded-lg shadow-bold-sm shadow-orange-700 border-orange-700 border-2 py-2 px-4 hover:bg-orange-100 hover:text-orange-700 focus:bg-orange-100 focus:text-orange-700 active:translate-x-1 active:translate-y-1 active:shadow-none text-white text-sm">Ir al post</a>
 						</div>
+					</div>
 					</div>
 				</article>
 				)

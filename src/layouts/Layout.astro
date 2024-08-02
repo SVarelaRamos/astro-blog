@@ -17,20 +17,20 @@ const { title } = Astro.props;
 	</head>
 	<body class="flex flex-col items-center min-h-screen bg-orange-50">
 		<slot />
-    <footer class="h-52 bg-stone-950 w-full mt-10 flex flex-col items-center text-orange-100">
-      <div class="px-8 pt-8 w-full max-w-[1200px] flex justify-between">
+    <footer class="min-h-52 min-w-full bg-stone-950 mt-10 flex flex-col items-center text-orange-100">
+      <div class="px-8 pt-8 w-full max-w-[994px] flex flex-col sm:flex-row gap-8 justify-between pb-8">
         <div class="font-chubbo flex flex-col text-orange-400">
-          <span class="text-5xl tracking-tighter">Gio's</span>
-          <span class="text-2xl tracking-tighter">cookbook</span>
+          <span class="text-5xl font-bold tracking-tighter">Gio's</span>
+          <span class="text-2xl font-bold tracking-tighter">cookbook</span>
         </div>
         <div class="min-w-24">
-          <h4>Socials</h4>
+          <h4>Redes sociales</h4>
           <ul>
             <li>
-              <a>Github</a>
+              <a target="_blank" rel="noopener noreferrer" href="https://generadordatos.dev/">LinkedIn</a>
             </li>
             <li>
-              <a>LinkedIn</a>
+              <a target="_blank" rel="noopener noreferrer" href="https://generadordatos.dev/">Github</a>
             </li>
             <li>
               <a>Mail</a>
@@ -52,168 +52,168 @@ const { title } = Astro.props;
 
 <style is:global>
 @font-face {
-  font-family: 'Chubbo-Extralight';
+  font-family: 'Chubbo';
   src: url('/fonts/chubbo/Chubbo-Extralight.woff2') format('woff2');
   font-weight: 200;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Chubbo-ExtralightItalic';
+  font-family: 'Chubbo';
   src: url('/fonts/chubbo/Chubbo-ExtralightItalic.woff2') format('woff2');
   font-weight: 200;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Chubbo-Light';
+  font-family: 'Chubbo';
   src: url('/fonts/chubbo/Chubbo-Light.woff2') format('woff2');
   font-weight: 300;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Chubbo-LightItalic';
+  font-family: 'Chubbo';
   src: url('/fonts/chubbo/Chubbo-LightItalic.woff2') format('woff2');
   font-weight: 300;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Chubbo-Regular';
+  font-family: 'Chubbo';
   src: url('/fonts/chubbo/Chubbo-Regular.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Chubbo-Italic';
+  font-family: 'Chubbo';
   src: url('/fonts/chubbo/Chubbo-Italic.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Chubbo-Medium';
+  font-family: 'Chubbo';
   src: url('/fonts/chubbo/Chubbo-Medium.woff2') format('woff2');
   font-weight: 500;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Chubbo-MediumItalic';
+  font-family: 'Chubbo';
   src: url('/fonts/chubbo/Chubbo-MediumItalic.woff2') format('woff2');
   font-weight: 500;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Chubbo-Bold';
+  font-family: 'Chubbo';
   src: url('/fonts/chubbo/Chubbo-Bold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Chubbo-BoldItalic';
+  font-family: 'Chubbo';
   src: url('/fonts/chubbo/Chubbo-BoldItalic.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Supreme-Thin';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-Thin.woff2') format('woff2');
   font-weight: 100;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Supreme-ThinItalic';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-ThinItalic.woff2') format('woff2');
   font-weight: 100;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Supreme-Extralight';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-Extralight.woff2') format('woff2');
   font-weight: 200;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Supreme-ExtralightItalic';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-ExtralightItalic.woff2') format('woff2');
   font-weight: 200;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Supreme-Light';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-Light.woff2') format('woff2');
   font-weight: 300;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Supreme-LightItalic';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-LightItalic.woff2') format('woff2');
   font-weight: 300;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Supreme-Regular';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-Regular.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Supreme-Italic';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-Italic.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Supreme-Medium';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-Medium.woff2') format('woff2');
   font-weight: 500;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Supreme-MediumItalic';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-MediumItalic.woff2') format('woff2');
   font-weight: 500;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Supreme-Bold';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-Bold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Supreme-BoldItalic';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-BoldItalic.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Supreme-Extrabold';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-Extrabold.woff2') format('woff2');
   font-weight: 800;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Supreme-ExtraboldItalic';
+  font-family: 'Supreme';
   src: url('/fonts/supreme/Supreme-ExtraboldItalic.woff2') format('woff2');
   font-weight: 800;
   font-display: swap;
@@ -223,7 +223,7 @@ body{
   @apply font-supreme
 }
 h1,h2,h3,h4,h5,h6{
-  @apply font-chubbo
+  @apply font-chubbo font-bold
 }
 footer h4{
   @apply mb-4 text-xl text-orange-400 border-b-2 border-orange-400

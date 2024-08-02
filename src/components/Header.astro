@@ -7,24 +7,27 @@ const { menu } = Astro.props;
 ---
 
 <header class="h-32 bg-orange-400 w-full flex justify-center" >
-    <div class="flex justify-between items-center px-8 pt-6 w-full max-w-[1200px]">
+    <div class="flex justify-between items-center px-8 pt-6 w-full max-w-[994px]">
         <div>
-            <h1 class="font-chubbo text-4xl title tracking-tighter">Gio's cookbook</h1>
+            <h1 class="font-chubbo font-bold text-4xl title tracking-tighter"><a href="/">Gio's cookbook</a></h1>
         </div>
-        <div>
+        <div class="block sm:hidden">
+            <span>menu</span>
+        </div>
+        <div class="hidden sm:block">
             <nav>
                 <ul class="flex gap-8">
                     <li class={menu == 'Blog' ? 'active' : ''}}>
                         <a href="/">Blog</a>
                     </li>
-                    <li class={menu == 'Categorías' ? 'active' : ''}>
+                    <!-- <li class={menu == 'Categorías' ? 'active' : ''}>
                         <a href="#">Categorías<img class="size-3 inline ml-1 -mt-[2px] rotate-90" src="/icons/arrow.svg" /></a>
                         <ul class="dropdown">
                             <li>Categoria 1</li>
                             <li>Categoria 2</li>
                             <li>Categoria 3</li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class={menu == 'About' ? 'active' : ''}>
                         <a href="/about">Sobre mí</a>
                     </li>
@@ -47,7 +50,7 @@ const { menu } = Astro.props;
         @apply bg-orange-200;
     }
 
-    a{
+    nav a{
         @apply border-2 border-black rounded px-6 py-1 shadow-bold-sm;
 
         &:hover{

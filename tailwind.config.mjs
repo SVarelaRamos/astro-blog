@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        chubbo: ["Chubbo-Bold", "serif"],
-        supreme: ["Supreme-Medium", "sans-serif"],
+        chubbo: ["Chubbo", "serif"],
+        supreme: ["Supreme", "sans-serif"],
       },
       boxShadow: {
         bold: "6px 6px 0 0 rgba(0, 0, 0, 1)",
