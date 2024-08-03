@@ -7,12 +7,14 @@ const { menu } = Astro.props;
 ---
 
 <header class="h-32 bg-orange-400 w-full flex justify-center" >
-    <div class="flex justify-between items-center px-8 pt-6 w-full max-w-[994px]">
+    <div class="flex justify-between items-center px-8 pt-6 w-full max-w-[994px] relative">
         <div>
             <h1 class="font-chubbo font-bold text-4xl title tracking-tighter"><a href="/">Gio's cookbook</a></h1>
         </div>
         <div class="block sm:hidden">
-            <span>menu</span>
+            <button type="button" onclick="openMenu(this)">
+                <svg  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="size-8"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
+            </button>
         </div>
         <div class="hidden sm:block">
             <nav>
@@ -34,8 +36,36 @@ const { menu } = Astro.props;
                 </ul>
             </nav>
         </div>
+        <div id="hamburger-menu" class="fixed bg-orange-400 inset-0 w-0 h-dvh flex justify-center items-center text-3xl overflow-hidden z-50">
+            <nav>
+                <ul class="flex flex-col gap-8">
+                    <li>
+                        <a href="/">Blog</a>
+                    </li>
+                    <li>
+                        <a href="/about">Sobre mí</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="absolute top-14 right-8">
+                <button type="button" onclick="closeMenu(this)">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round" class="size-8"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+                </button>
+            </div>
+        </div>
     </div>
-    </header>
+</header>
+<script is:inline>
+    let menu = document.getElementById('hamburger-menu')
+    function openMenu(){
+        menu?.classList.remove("w-0")
+        menu?.classList.add("w-full")
+    }
+    function closeMenu(){
+        menu?.classList.remove("w-full")
+        menu?.classList.add("w-0")
+    }
+</script>
 
 <style>
     h1{
