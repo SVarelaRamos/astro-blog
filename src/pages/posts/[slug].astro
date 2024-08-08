@@ -57,9 +57,10 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+
 ---
 
-<Layout title={`Posts | ${post.title}`} description={`Receta de ${post.title}`}>
+<Layout title={`Posts | ${post.title}`} description={`Receta de ${post.title}`} urlOgImage={post.featuredImage.node.mediaItemUrl}>
   <Header menu="none"/>
   <main class="pt-8 pl-8 pr-8 sm:pr-28 w-full max-w-[780px]">
     <section>

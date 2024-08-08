@@ -2,9 +2,10 @@
 interface Props {
 	title: string;
   description: string;
+  urlOgImage?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, urlOgImage } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,6 +13,7 @@ const { title, description } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
+    {urlOgImage && <meta property="og:image" content={urlOgImage} />}
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
